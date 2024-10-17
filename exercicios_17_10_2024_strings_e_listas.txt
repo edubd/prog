@@ -1,0 +1,108 @@
+# 17/10/2024 - Exercícios envolvendo Strings e Listas
+
+# DICA: sempre que possível, faça uso dos métodos de string,
+# operações (ex.: fatiamento, in, +, *) e funções pré-definidas
+
+"""
+1. Escreva um programa que, a partir de uma string s1, gere uma nova string s2
+composta pelos 2 primeiros e os 2 últimos caracteres de s1
+
+Caso s1 tenha menos de 2 caracteres, s2 deverá ficar vazia
+
+Ex: 'estatística' -> 'esca'
+    'python' -> 'pyon'
+    'br' -> 'brbr'
+    'b' -> ''
+"""
+s1 = 'estatística' # teste com as outras strings
+#s1 = 'python'
+#s1 = 'br'
+#s1 = 'b'
+
+if len(s1) < 2:
+    s1 = ''
+else:
+    s2 = s1[:2] + s1[-2:] # fatiamento + concatenação 
+
+print(s2)
+
+"""
+2. Escreva um programa que gere automaticamente uma lista com 52 elementos,
+sendo eles as 26 letras do alfabeto em maiúsculo e minúsculo
+
+dica: unicode...
+"""
+lst = []
+for i in range(ord('A'), ord('A')+26): lst.append(chr(i))
+for i in range(ord('a'), ord('a')+26): lst.append(chr(i))
+print(lst)
+
+"""
+3. Dada uma string s, escreve um programa que modifique s removendo seu i-ésimo caractere.
+(considere que o primeiro caractere está na posição 0)
+se i for maior que o último índice de s, nada deverá ser feito
+
+Ex: s='google' e i=3 -> 'goole'
+    s='houve' e i=0 -> 'ouve'
+    s='olá' e i = 5 -> 'olá'
+"""
+s = 'google'; i = 3
+#s = 'houve'; i = 0
+#s = 'olá'; i  = 5
+if i < len(s):
+    s = s[:i] + s[i+1:]
+
+print(s)
+
+"""
+4. dada uma lista l, escreva um programa que imprima True se todos
+os elementos dela forem repetidos ou False caso contrário
+Ex: ['ENCE', 'ENCE', 'ENCE', 'ENCE', 'ENCE'] -> True
+    ['ENCE', 'FGV', 'ENCE'] -> False
+    ['ENCE'] -> True
+    [] -> False
+"""
+l = ['ENCE', 'ENCE', 'ENCE', 'ENCE', 'ENCE']
+#l = ['ENCE', 'FGV', 'ENCE'] 
+#l = ['ENCE'] 
+#l = []
+print( (len(l) > 0) and (l.count(l[0]) == len(l)) )
+    
+"""
+5. dada uma string s, gere uma lista 2d contendo a frequência de cada
+   caractere da string
+Ex: 'ARARARAQUARA' -> [['A', 6], ['R', 4], ['Q', 1], ['U', 1]]
+"""
+s = 'ARARARAQUARA'
+
+freq = []
+for c in s:
+    aux = [c, s.count(c)]
+    if aux not in freq: freq.append(aux)
+
+print(freq)
+
+"""
+6. escreva um programa para converter uma string em uma lista de palavras
+ex: 'vovô viu a uva' -> ['vovô', 'viu', 'a', 'uva']
+"""
+s = 'vovô viu a uva'
+lst_palavras = s.split()
+print(lst_palavras)
+
+"""
+7. escreva um programa que remova os caracteres x, v e w (escritos em 
+maiúsculo ou minúsculo) de uma string s
+ex: 'vai Xuxa!' -> 'ai ua!'
+"""
+s = 'vai Xuxa!'
+proibidos = 'xvwXVW'
+
+aux = ''
+for c in s:
+    if c not in proibidos: aux = aux + c
+
+s = aux
+print(s)
+
+
