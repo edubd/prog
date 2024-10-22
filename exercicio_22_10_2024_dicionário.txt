@@ -1,0 +1,20 @@
+emps = {7369: "Smith", 7499: "Allen", 7900: "Jamil", 1234: "Saurabh",
+        7782: "Clark"}
+emps_novos = [(7521, "Ward"), (7934, "Miller")]
+# Inserir o empregado Scott, cuja matrícula é 7788
+emps[7788] = "Scott"; print(emps)
+# Alterar o nome do empregado de matrícula 7900 para James
+emps[7900] = "James"; print(emps)
+# Remover o empregado de matrícula 1234
+emps.pop(1234); print(emps)
+# Atualizar “emps” com todos os empregados da lista “emps_novos”
+emps.update(emps_novos); print(emps)
+# Qual comando pode ser utilizado para descobrir se a chave 7782 existe?
+print(7782 in emps)
+# valor  associado chave 7654 sem gerar erro se a chave não existir?
+print(emps.get(7654))
+# Nome “Smith” está em “emps”?
+print("Smith" in emps.values())
+for k in emps: print(k) # Imprima todas as chaves
+for v in emps.values(): print(v) # Imprima todas os valores
+for k, v in emps.items(): print(k, v) # Imprima todas as chaves e valores
