@@ -1,0 +1,65 @@
+"""
+(1). Escreva uma função p/ converter um valor em metros para polegadas ou pés, dado que:
+     1m = 39,3701 polegadas = 3,28084 pés
+     A função deve ter dois parâmetros: valor m e tipo de conversão (1=Polegadas ou 2=Pés)
+     no programa principal, use a função para converter os seguintes valores: 1.0m, 1.60m, 1.75m
+"""
+def f_conversor(valor, tipo):
+    if tipo == 1: return valor * 39.3701
+    elif tipo == 2: return valor * 3.28084
+    else: return None # cai aqui se usuário passou tipo inválido
+
+# usando a função no programa principal
+print('1m =', f_conversor(1.0, 1),'pol =', f_conversor(1.0, 2), 'pés')
+print('1m =', f_conversor(1.60, 1),'pol =', f_conversor(1.60, 2), 'pés')
+print('1m =', f_conversor(1.75, 1),'pol =', f_conversor(1.75, 2), 'pés')
+print()
+# um jeito mais elegante de usar a função com os 3 valores:
+valores = [1.0, 1.60, 1.75]
+for valor in valores:
+    print(f'{valor}m = {f_conversor(valor,1):.4f} pol = {f_conversor(valor,2):.4f} pés')
+    
+"""
+(2). Escreva uma função chamada f_prod que receba como entrada um inteiro n e retorne
+como saída o produto dos n primeiros múltiplos de 5. Se n < 1, a função deverá retornar None. Exemplos:
+f_prod(0) retornará: None
+f_prod(1) retornará: 5
+f_prod(2) retornará: 5 * 10 = 50
+f_prod(3) retornará: 5 * 10 * 15 = 750
+e assim por diante...
+"""
+def f_prod(n):
+    if n < 1: return None
+    resp = 1
+    for i in range(1, n+1):
+        resp *= 5 * i
+    
+    return resp
+
+# testando
+for i in range(10):
+    print('f_prod(',i,') =',f_prod(i))
+    
+"""
+(3). Escreva uma função que receba como entrada uma matriz quadrada m x m
+     e como saida retorne uma lista com todos os elementos da matriz. Exemplo:
+[[10, 20],
+ [30, 40]]  -> [10, 20, 30, 40]
+"""
+def matriz2vetor(mat):
+    m = len(mat)
+    lst = []
+    for i in range(m):
+        for j in range(m):
+            lst.append(mat[i][j])
+    
+    return lst
+
+# testando
+A = [[10, 20],
+     [30, 40]]
+
+v = matriz2vetor(A)
+print()
+print(A)
+print(v)
